@@ -30,8 +30,8 @@ function colorClickEvent(e){
 
 function mouseDownEvent(e){
     canDraw = true;
-    mouseX = e.pagex - screen.offsetLeft;
-    mouseX = e.pagey - screen.offsetTop;
+    mouseX = e.pageX - screen.offsetLeft;
+    mouseX = e.pageY - screen.offsetTop;
     
 }
 
@@ -45,19 +45,19 @@ function mouseUpEvent(){
     canDraw = false;
 }
 
-function draw(x,y){
-    let ponintX = x - screen.offsetLeft;
-    let ponintY = y - screen.offsetTop;
+function draw(x, y){
+    let pointX = x - screen.offsetLeft;
+    let pointY = y - screen.offsetTop;
 
     ctx.beginPath();
     ctx.lineWidth = 5;
     ctx.lineJoin = "round";
     ctx.moveTo(mouseX, mouseY);
-    ctx.lineTo(ponintX, ponintY);
+    ctx.lineTo(pointX, pointY);
     ctx.closePath();
     ctx.strokeStyle = currentCollor;
     ctx.stroke();
     
-    mouseX = ponintX;
-    mouseY  = ponintY;  
+    mouseX = pointX;
+    mouseY  = pointY;  
 }
