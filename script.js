@@ -11,6 +11,7 @@ document.querySelectorAll('.colorArea .color').forEach(item =>{
 screen.addEventListener('mousedown', mouseDownEvent);
 screen.addEventListener('mousemove', mouseMoveEvent);
 screen.addEventListener('mouseup', mouseUpEvent);
+document.querySelector('.clear').addEventListener('click', clearScreen);
 
 /*
 Passo a passo para desenhar no canvas:
@@ -31,7 +32,7 @@ function colorClickEvent(e){
 function mouseDownEvent(e){
     canDraw = true;
     mouseX = e.pageX - screen.offsetLeft;
-    mouseX = e.pageY - screen.offsetTop;
+    mouseY = e.pageY - screen.offsetTop;
     
 }
 
@@ -59,5 +60,10 @@ function draw(x, y){
     ctx.stroke();
     
     mouseX = pointX;
-    mouseY  = pointY;  
+    mouseY = pointY;  
+}
+
+function clearScreen() {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
